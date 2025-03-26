@@ -7,18 +7,21 @@ void main() {
     expect(calculator(-9, "+", 5), -4);
     expect(calculator(-9, "+", -9), -18);
     expect(calculator(-2, "+", 5), 3);
+    expect(() => calculator(-2, "+"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
   test('Subtraction test', () {
     expect(calculator(5, "-", 4), 1);
     expect(calculator(4.2, "-", 5.2), -1.0);
     expect(calculator(6, "-", -7), 13);
+    expect(() => calculator(-2, "-"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
   test('Multiplication test', () {
     expect(calculator(5, "*", 4), 20);
     expect(calculator(2, "*", -2), -4);
     expect(calculator(-4, "*", -4), 16);
+    expect(() => calculator(-2, "*"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
   test("Divide test", () {
@@ -26,6 +29,7 @@ void main() {
     expect(calculator(4, "/", -2), -2);
     expect(calculator(-4, "/", -2), 2);
     expect(() => calculator(4, "/", 0), throwsA(TypeMatcher<ArgumentError>()));
+    expect(() => calculator(4, "/"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
   test("Modulus test", () {
@@ -33,6 +37,7 @@ void main() {
     expect(calculator(4, "%", -3), 1);
     expect(calculator(-4, "%", -3), -1);
     expect(() => calculator(4, "%", 0), throwsA(TypeMatcher<ArgumentError>()));
+    expect(() => calculator(4, "%"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
   test("Power test", () {
@@ -40,6 +45,7 @@ void main() {
     expect(calculator(4, "^", -2), 0.0625);
     expect(calculator(-4, "^", -2), 0.0625);
     expect(calculator(4, "^", 0), 1);
+    expect(() => calculator(-2, "^"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
   test("Power test", () {

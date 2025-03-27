@@ -39,12 +39,14 @@ double calculator(double number1, String operator, [number2]) {
         num answer = pow(number1, number2);
         return answer.toDouble();
       }
-
-    case '^2':
-      num answer = pow(number1, 2.0);
+    case 'AND':
+      int answer = number1.toInt() & number2.toInt();
       return answer.toDouble();
-    case '^3':
-      num answer = pow(number1, 3.0);
+    case 'OR':
+      int answer = number1.toInt() | number2.toInt();
+      return answer.toDouble();
+    case "XOR":
+      int answer = number1.toInt() ^ number2.toInt();
       return answer.toDouble();
     case 'sqrt':
       if (number1 < 0) {

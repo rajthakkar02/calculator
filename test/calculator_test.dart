@@ -48,19 +48,22 @@ void main() {
     expect(() => calculator(-2, "^"), throwsA(TypeMatcher<ArgumentError>()));
   });
 
-  test("Power test", () {
-    expect(calculator(4, "^2"), 16);
-    expect(calculator(-4, "^2"), 16);
+  test("AND Test", () {
+    expect(calculator(4, "AND", 5), 4);
+    expect(calculator(-4, "AND", -5), -8);
+    expect(calculator(-4, "AND", 5), 4);
   });
 
-  test("Square test", () {
-    expect(calculator(4, "^2"), 16);
-    expect(calculator(-4, "^2"), 16);
+  test("OR test", () {
+    expect(calculator(4, "OR", 5), 5);
+    expect(calculator(-4, "OR", -5), -1);
+    expect(calculator(-4, "OR", 5), -3);
   });
 
-  test("Cube test", () {
-    expect(calculator(4, "^3"), 64);
-    expect(calculator(-4, "^3"), -64);
+  test("XOR test", () {
+    expect(calculator(4, "XOR", 5), 1);
+    expect(calculator(-4, "XOR", -5), 7);
+    expect(calculator(-4, "XOR", 5), -7);
   });
 
   test("Square root test", () {
